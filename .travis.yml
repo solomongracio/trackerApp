@@ -12,7 +12,6 @@ before_script:
 
 script:
   - ng build --prod
-  - firebase use preethihomeapp
 
 after_success:
   - firebase deploy --token 1/51dj7owiX8cQDeY0dqSrkgB_kRXiSM1zLyS63XQDcOs
