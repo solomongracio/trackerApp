@@ -1,0 +1,49 @@
+
+
+  <div class = "wrap">
+      <div class = "back-wrap" (click) = "location.back()">
+        <md-icon  color = "accent">arrow_back</md-icon>
+        <span>back</span>
+      </div>
+      <div class = "select-wrap">
+        <md-select [(ngModel)] ="category" class="full-width">
+            <md-option value = ''>All</md-option>
+            <md-option *ngFor="let cat of appCategory" [value]="cat.id">
+              {{ cat.name }}
+            </md-option>
+        </md-select>
+      </div>
+  </div>
+
+
+
+<div class = "spent-list-wrap">
+  <div class = "list-wrap" *ngFor="let item of spendLists | orderByDate | forfilter: 'categoryID':category">
+    <div class = "list-content-container">
+      <div class = "list-container">
+        <div class = "list-amount"> Rs. {{item.amount}}</div>
+        <div class = "list-category">{{item.categoryName}}</div>
+        <div class = "list-date">{{item.date | date: 'yMMMd'}}</div>
+      </div>
+      <div class = "list-desc">
+        {{item.desc}}
+      </div>
+    </div>
+
+    <div class = "list-action">
+      <button md-icon-button [mdMenuTriggerFor]="menu">
+        <md-icon>more_vert</md-icon>
+      </button>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item (click) = "edit(item.$key)">
+          <md-icon>mode_edit</md-icon>
+          <span>Edit</span>
+        </button>
+        <button md-menu-item (click) = "remove(item.$key)">
+          <md-icon>delete_sweep</md-icon>
+          <span>Delete</span>
+        </button>
+      </md-menu>
+    </div>
+  </div>
+</div>

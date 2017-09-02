@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+body
+{
+    padding: 0;
+    font-size: 14px;
+    margin: 0;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+.input-wrapper
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.full-width
+{
+    width: 80%;
+    max-width:300px;
+}
+.page-wrapper
+{
+    padding: 20px;
+}
+
+.fl-left
+{
+    float: left;
+}
+.fl-right
+{
+    float: right;
+}
+.inline-block {
+    display: inline-block;
+}

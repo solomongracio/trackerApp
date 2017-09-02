@@ -1,0 +1,22 @@
+<md-toolbar color="accent">
+        <span class = "app-title">Home App</span>
+        <!-- This fills the remaining space of the current row -->
+        <span class="example-fill-remaining-space"></span>
+
+        <span *ngIf = "(user | async)"> 
+                <span class = "user-wrap">
+                        <span *ngIf = "(user | async)?.photoURL">
+                                <img src ="{{ (user | async)?.photoURL }}" class = "user-image" height = "30" width = "auto">
+                        </span>
+                        <span class="user-name">{{ (user | async)?.displayName }}</span>
+                        <md-icon class = "logout-icon" [mdMenuTriggerFor]="menu">arrow_drop_down</md-icon>
+                        <md-menu #menu="mdMenu">
+                        <button md-menu-item (click) = "logout()">
+                                <span>Logout</span>
+                        </button>
+                        </md-menu>
+                </span>
+        </span>
+        <span class = "login" (click) = "login()" *ngIf = "!(user | async)">Login</span>
+</md-toolbar>
+<router-outlet></router-outlet>

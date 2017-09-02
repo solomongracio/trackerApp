@@ -1,0 +1,38 @@
+.dashboard-wrapper
+{
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+.monthWrapper
+{
+    color: #000;
+    font-size: 22px;
+    padding: 0 20px;
+}
+.pt10 {
+    padding-top: 10px;
+}
+.pt5 {
+    padding-top: 5px;
+}
+.arr
+{
+    cursor: pointer;
+    color: #ccc;
+}
+.chart-wrap {
+    margin-bottom: 30px;
+}
+.mat-icon-button .mat-icon
+{
+    line-height: 17px;
+}
+.plus-add {
+    position: fixed;
+    bottom: 60px;
+    right:20px;
+}
+.total {
+    font-size: 25px;
+}

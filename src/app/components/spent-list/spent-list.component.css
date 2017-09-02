@@ -1,0 +1,87 @@
+.wrap
+{
+    padding-top: 10px;
+    padding-left: 5px;
+    /* position: fixed; */
+    height: 45px;
+    background-color: #fff;
+    top: 55px;
+    width: 100%;
+}
+.list-wrap
+{
+    width: calc( 100% - 10px);
+    float: left;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12);
+    
+}
+
+.list-container
+{
+    width: 100%;
+    float: left;
+    padding-top: 10px;
+}
+
+.list-amount
+{
+    width: 25%;
+    float: left;
+    color:#ff4081;
+}
+
+.list-category
+{
+    width: 45%;
+    float: left;
+    color: #1094b5;
+}
+.list-date
+{
+    width:30%;
+    float: right;
+    font-size: 13px;
+    text-align: right;
+}
+.list-desc {
+    width:100%;
+    float: left;
+    padding-top:5px;
+    font-size: 13px;
+    color:#968e8e;
+}
+.spent-list-wrap {
+    padding: 10px;
+    width: calc(100% - 20px);
+    float: left;
+    /* margin-top: 50px; */
+}
+
+.list-content-container {
+    float: left;
+    width:90%;
+}
+
+.list-action {
+    width:10%;
+    float: left;
+}
+.select-wrap {
+    width:70%;
+    float: right;
+}
+.back-wrap {
+    width:30%;
+    float: left;
+    position: relative;
+}
+.select-wrap md-select {
+    width:93%;
+}
+.back-wrap span {
+    position: absolute;
+    top: 5px;
+    left: 30px;
+}

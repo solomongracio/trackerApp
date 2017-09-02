@@ -1,0 +1,28 @@
+<div class = "page-wrapper">
+    <div class = "dashboard-wrapper">
+
+        <a class = "plus-add" md-fab routerLink="/spend/add/0" color = "accent"><md-icon>add</md-icon></a>
+
+        <div class = "monthWrapper">
+            <button class = "fl-left" md-icon-button (click) = "goPrev()">
+                <md-icon>navigate_before</md-icon>
+            </button>
+            <span class = "pt5 inline-block">{{ monthName }}</span>
+            <button class = "fl-right" md-icon-button (click) = "goNext()">
+                    <md-icon>navigate_next</md-icon>
+            </button>
+        </div>
+        <h2>Total Spendings</h2>
+        <h2 class = "total">{{ getTotal(items | async)}}</h2>
+
+        <div class = "chart-wrap" *ngIf = "showChart">
+            <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <a md-raised-button routerLink="/spent/list/{{monthName}}" color = "accent">View List</a>
+    </div>
+</div>

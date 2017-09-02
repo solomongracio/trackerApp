@@ -1,0 +1,37 @@
+<div class = "page-wrapper">
+  <div class = "input-wrapper">
+    <md-input-container class="full-width">
+        <input mdInput placeholder="Amount" appOnlyNumber = "true" [(ngModel)] ="addObj.amount">
+    </md-input-container>
+  </div>
+
+  <div class = "input-wrapper">
+    <md-input-container class="full-width">
+        <input mdInput [mdDatepicker]="picker" [(ngModel)] ="addObj.date" placeholder="Choose a date">
+        <button mdSuffix [mdDatepickerToggle]="picker"></button>
+    </md-input-container>
+    <md-datepicker touchUi="true" #picker></md-datepicker>
+  </div>
+
+  <div class = "input-wrapper">
+    <md-select placeholder="Category" [(ngModel)] ="addObj.category" class="full-width">
+        <md-option *ngFor="let cat of appCategory" [value]="cat.id">
+          {{ cat.name }}
+        </md-option>
+    </md-select>
+  </div>
+
+  <div class = "input-wrapper">
+    <md-input-container class="example-full-width" class="full-width">
+        <textarea mdInput placeholder="Description" [(ngModel)] = "addObj.desc"></textarea>
+    </md-input-container>
+  <div>
+
+  <div class = "input-wrapper">
+    <div class = "full-width">
+        <a class = "fl-left" md-raised-button (click) = "back()">Back</a>
+        <button class = "fl-right" md-raised-button (click) = "addItem()" color = "warn">{{action == 'add'?'Add':'Update'}}</button>
+    </div>
+  </div>
+
+</div>
