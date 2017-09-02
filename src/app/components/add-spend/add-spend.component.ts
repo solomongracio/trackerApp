@@ -22,7 +22,7 @@ export class AddSpendComponent implements OnInit {
   key: string;
   appCategory: any;
   obj: FirebaseObjectObservable<any>;
-  private addObj: any = {
+  addObj: any = {
     amount: '',
     category: '',
     desc: '',

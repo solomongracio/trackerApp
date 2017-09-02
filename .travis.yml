@@ -11,12 +11,12 @@ before_script:
   - npm install -g @angular/cli
 
 script:
-  - ng build
+  - ng build --prod
 
 after_success:
   - firebase deploy --token 1/51dj7owiX8cQDeY0dqSrkgB_kRXiSM1zLyS63XQDcOs
 
 notifications:
   email:
-    on_failure: change
-    on_success: change
+    on_failure: solomonvgracio@gmail.com
+    on_success: solomonvgracio@gmail.com
