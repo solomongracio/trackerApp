@@ -9,9 +9,10 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "manifest.json"
       ],
       "index": "index.html",
+      "serviceWorker": true,
       "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",

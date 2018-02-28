@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   monthName: string;
   items: FirebaseListObservable<any>;
   subject = new Subject();
+  year = new Date().getFullYear();
 
   public pieChartLabels: string[] = [];
   public pieChartData: number[] = [];
@@ -23,12 +24,13 @@ export class DashboardComponent implements OnInit {
   constructor(db: AngularFireDatabase) {
     this.items = db.list('/items', {
       query: {
-        orderByChild: 'monthName',
+        orderByChild: 'monthyear',
         equalTo: this.subject
       }
     });
 
     this.items.subscribe(queriedItems => {
+      console.log(queriedItems);
       this.drawChart(queriedItems);
     });
   }
@@ -85,23 +87,25 @@ export class DashboardComponent implements OnInit {
   goPrev() {
     let index = months.indexOf(this.monthName);
     if (index === 0) {
+        this.year = this.year - 1;
         index = 11;
       } else {
         index = index - 1;
       }
       this.monthName = months[index];
-      this.subject.next(this.monthName);
+      this.subject.next(this.monthName + '~' + this.year);
   }
 
   goNext() {
     let index = months.indexOf(this.monthName);
     if (index === 11) {
         index = 0;
+        this.year = this.year + 1;
       } else {
         index = index + 1;
       }
       this.monthName = months[index];
-      this.subject.next(this.monthName);
+      this.subject.next(this.monthName + '~' + this.year);
   }
 
   ngOnInit() {
@@ -109,7 +113,7 @@ export class DashboardComponent implements OnInit {
     this.subject.next('dummay');
     // tslint:disable-next-line:prefer-const
     let self = this;
-    setTimeout(function(){self.subject.next(self.monthName); }, 2000);
+    setTimeout(() => {this.subject.next(this.monthName + '~' + this.year); }, 2000);
   }
 
 }

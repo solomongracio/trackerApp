@@ -7,7 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
-const months = ['January', 'Febrauary', 'March', 'April', 'May', 'June', 'July', 'August', 'Septemper', 'October', 'November', 'December'];
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Septemper', 'October', 'November', 'December'];
 @Component({
   selector: 'app-add-spend',
   templateUrl: './add-spend.component.html',
@@ -70,6 +70,7 @@ export class AddSpendComponent implements OnInit {
     this.addObj.categoryName = this.appCategory.filter(i => i.id === id)[0].name;
     delete this.addObj['category'];
     if (this.action === 'add') {
+      console.log(this.addObj);
       this.items.push(this.addObj);
       this.clearInputs();
       this.snackbar.open('Added Successfully', 'Add', {duration: 3000});

@@ -2,12 +2,19 @@ import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 
+import {MdButtonModule, MdListModule, MdInputModule,
+  MdDatepickerModule, MdSelectModule, MdNativeDateModule,
+  MdToolbarModule, MdMenuModule, MdIconModule, MdSnackBarModule} from '@angular/material';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      imports: [MdButtonModule, MdListModule, MdInputModule,
+        MdDatepickerModule, MdSelectModule, MdNativeDateModule,
+        MdToolbarModule, MdMenuModule, MdIconModule, MdSnackBarModule]
     }).compileComponents();
   }));
 
