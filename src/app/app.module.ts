@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import {MdButtonModule, MdListModule, MdInputModule,
-  MdDatepickerModule, MdSelectModule, MdNativeDateModule,
-  MdToolbarModule, MdMenuModule, MdIconModule, MdSnackBarModule} from '@angular/material';
+import {MatButtonModule, MatListModule, MatInputModule, MatChipsModule,
+  MatDatepickerModule, MatSelectModule, MatNativeDateModule,
+  MatToolbarModule, MatMenuModule, MatIconModule, MatSnackBarModule} from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -35,8 +35,8 @@ import { LoginComponent } from './components/login/login.component';
     OrderModule,
     AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule, AngularFireAuthModule,
     AppRoutingModule, BrowserAnimationsModule,
-    MdButtonModule, MdListModule, MdInputModule, MdMenuModule,
-    MdDatepickerModule, MdNativeDateModule, MdSelectModule, MdToolbarModule, MdIconModule, MdSnackBarModule,
+    MatButtonModule, MatListModule, MatInputModule, MatMenuModule, MatChipsModule,
+    MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatToolbarModule, MatIconModule, MatSnackBarModule,
     ChartsModule
   ],
   providers: [

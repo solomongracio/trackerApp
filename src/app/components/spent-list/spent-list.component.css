@@ -27,7 +27,7 @@
 
 .list-amount
 {
-    width: 25%;
+    width: 30%;
     float: left;
     color:#ff4081;
 }
@@ -40,7 +40,7 @@
 }
 .list-date
 {
-    width:30%;
+    width:25%;
     float: right;
     font-size: 13px;
     text-align: right;
@@ -84,4 +84,38 @@
     position: absolute;
     top: 5px;
     left: 30px;
+}
+.user-name {
+    color: #beceba;
+    font-style: italic;
+    font-size: 12px;
+}
+.user-list {
+    padding-left:10px;
+    margin-bottom: 15px;
+}
+.chip {
+    display:inline-block;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+    display: inline;
+    padding: 10px;
+    font-size: 13px;
+    margin-left: 5px;
+}
+.chip.selected {
+    box-shadow : 0 3px 5px -1px rgba(0,0,0,.2), 0 5px 8px 0 rgba(0,0,0,.14), 0 1px 14px 0 rgba(0,0,0,.12)
+}
+.chip.pink {
+    background-color: #ff4081;
+    color: #fff;
+}
+.chip.blue {
+    background-color: #3f51b5;
+    color: #fff;
+}
+.chip.total {
+    background-color: #f44336;
+    color: #fff;
 }

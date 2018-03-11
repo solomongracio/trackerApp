@@ -1,36 +1,41 @@
 <div class = "page-wrapper">
   <div class = "input-wrapper">
-    <md-input-container class="full-width">
-        <input mdInput placeholder="Amount" appOnlyNumber = "true" [(ngModel)] ="addObj.amount">
-    </md-input-container>
+    <mat-input-container class="full-width">
+        <input matInput placeholder="Amount" appOnlyNumber = "true" [(ngModel)] ="addObj.amount">
+    </mat-input-container>
   </div>
 
   <div class = "input-wrapper">
-    <md-input-container class="full-width">
-        <input mdInput [mdDatepicker]="picker" [(ngModel)] ="addObj.date" placeholder="Choose a date">
-        <button mdSuffix [mdDatepickerToggle]="picker"></button>
-    </md-input-container>
-    <md-datepicker touchUi="true" #picker></md-datepicker>
+      <!-- <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+    <mat-input-container class="full-width">
+        <input matInput [matDatepicker]="picker" [(ngModel)] ="addObj.date" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    </mat-input-container>
+    <mat-datepicker touchUi="true" #picker></mat-datepicker>
   </div>
 
   <div class = "input-wrapper">
-    <md-select placeholder="Category" [(ngModel)] ="addObj.category" class="full-width">
-        <md-option *ngFor="let cat of appCategory" [value]="cat.id">
+    <mat-select placeholder="Category" [(ngModel)] ="addObj.category" class="full-width">
+        <mat-option *ngFor="let cat of appCategory" [value]="cat.id">
           {{ cat.name }}
-        </md-option>
-    </md-select>
+        </mat-option>
+    </mat-select>
   </div>
 
   <div class = "input-wrapper">
-    <md-input-container class="example-full-width" class="full-width">
-        <textarea mdInput placeholder="Description" [(ngModel)] = "addObj.desc"></textarea>
-    </md-input-container>
+    <mat-input-container class="example-full-width" class="full-width">
+        <textarea matInput placeholder="Description" [(ngModel)] = "addObj.desc"></textarea>
+    </mat-input-container>
   <div>
 
   <div class = "input-wrapper">
     <div class = "full-width">
-        <a class = "fl-left" md-raised-button (click) = "back()">Back</a>
-        <button class = "fl-right" md-raised-button (click) = "addItem()" color = "warn">{{action == 'add'?'Add':'Update'}}</button>
+        <a class = "fl-left" mat-raised-button (click) = "back()">Back</a>
+        <button class = "fl-right" mat-raised-button (click) = "addItem()" color = "warn">{{action == 'add'?'Add':'Update'}}</button>
     </div>
   </div>
 

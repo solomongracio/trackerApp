@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
-import {MdSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -17,10 +17,12 @@ export class AddSpendComponent implements OnInit {
 
   user: Observable<firebase.User>;
   items: FirebaseListObservable<any>;
+  userList: FirebaseListObservable<any>;
   categories: FirebaseListObservable<any>;
   action:  string;
   key: string;
   appCategory: any;
+  currentUser: any;
   obj: FirebaseObjectObservable<any>;
   addObj: any = {
     amount: '',
@@ -32,12 +34,21 @@ export class AddSpendComponent implements OnInit {
   constructor(private db: AngularFireDatabase,
     private location: Location,
     private router: Router,
-    private route: ActivatedRoute, private snackbar: MdSnackBar, public afAuth: AngularFireAuth) {
+    private route: ActivatedRoute, private snackbar: MatSnackBar, public afAuth: AngularFireAuth) {
       this.items = db.list('/items');
+      this.userList = db.list('/listUsers');
       this.categories = db.list('/categories');
       this.user = afAuth.authState;
+      this.user.subscribe(user => {
+        if (user) {
+          this.currentUser = user;
+        }
+      });
       this.categories.subscribe(item => {
         this.appCategory = item;
+      });
+      this.userList.subscribe(users => {
+        console.log('user list', users);
       });
 
       this.action = route.snapshot.params['action'];
@@ -59,6 +70,11 @@ export class AddSpendComponent implements OnInit {
   }
 
   addItem() {
+    this.addObj.categoryID = this.addObj.category;
+    if (this.currentUser.uid) {
+      this.addObj.addedByName = this.currentUser.displayName;
+      this.addObj.addedBy = this.currentUser.uid;
+    }
     this.addObj.categoryID = this.addObj.category;
     this.addObj.date = new Date(this.addObj.date).toString();
     this.addObj.monthName = months[new Date(this.addObj.date).getMonth()];

@@ -30,7 +30,6 @@ export class DashboardComponent implements OnInit {
     });
 
     this.items.subscribe(queriedItems => {
-      console.log(queriedItems);
       this.drawChart(queriedItems);
     });
   }
@@ -79,9 +78,9 @@ export class DashboardComponent implements OnInit {
           // tslint:disable-next-line:radix
           total = parseInt(items[i].amount) + total;
         }
-        return 'Rs. ' + total;
+        return  total;
       }
-      return 'Loading...';
+      return 0;
   }
 
   goPrev() {

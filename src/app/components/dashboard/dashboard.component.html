@@ -1,20 +1,20 @@
 <div class = "page-wrapper">
     <div class = "dashboard-wrapper">
 
-        <a class = "plus-add" md-fab routerLink="/spend/add/0" color = "accent"><md-icon>add</md-icon></a>
+        <a class = "plus-add" mat-fab routerLink="/spend/add/0" color = "accent"><mat-icon>add</mat-icon></a>
 
         <div class = "monthWrapper">
-            <button class = "fl-left" md-icon-button (click) = "goPrev()">
-                <md-icon>navigate_before</md-icon>
+            <button class = "fl-left" mat-icon-button (click) = "goPrev()">
+                <mat-icon>navigate_before</mat-icon>
             </button>
             <span class = "pt5 inline-block">{{ monthName }}</span>
             <span class = "pt5 inline-block">{{ year }}</span>
-            <button class = "fl-right" md-icon-button (click) = "goNext()">
-                    <md-icon>navigate_next</md-icon>
+            <button class = "fl-right" mat-icon-button (click) = "goNext()">
+                    <mat-icon>navigate_next</mat-icon>
             </button>
         </div>
         <h2>Total Spendings</h2>
-        <h2 class = "total">{{ getTotal(items | async)}}</h2>
+        <h2 class = "total">{{ getTotal(items | async) | currency:'INR':'symbol-narrow'}}</h2>
 
         <div class = "chart-wrap" *ngIf = "showChart">
             <canvas baseChart
@@ -24,6 +24,6 @@
                     (chartHover)="chartHovered($event)"
                     (chartClick)="chartClicked($event)"></canvas>
         </div>
-        <a md-raised-button routerLink="/spent/list/{{monthName}}" color = "accent">View List</a>
+        <a mat-raised-button routerLink="/spent/list/{{monthName}}" color = "accent">View List</a>
     </div>
 </div>

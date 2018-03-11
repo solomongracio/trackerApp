@@ -12,19 +12,22 @@ import * as firebase from 'firebase/app';
 })
 export class AppComponent {
   user: Observable<firebase.User>;
-  constructor(public afAuth: AngularFireAuth, router: Router) {
+  constructor(public afAuth: AngularFireAuth, public router: Router) {
     this.user = afAuth.authState;
     this.user.subscribe(user => {
       if (!user) {
         router.navigateByUrl('/login');
       } else if (user) {
-        console.log(user.getIdToken());
+        // router.navigateByUrl('/spent/list/March');
         router.navigateByUrl('/dashboard');
       }
     });
   }
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+  goTo(route) {
+    this.router.navigateByUrl('/dashboard');
   }
 
   logout() {
